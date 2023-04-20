@@ -16,8 +16,9 @@
 
 	function handleSubmit() {
 		loading = true;
-		return async () => {
+		return async ({ update }) => {
 			loading = false;
+			update();
 		};
 	}
 </script>
@@ -70,7 +71,7 @@
 
 	<form method="post" action="?/signout" use:enhance={handleSubmit}>
 		<div>
-			<button class="button block" disabled={loading}>Sign Out</button>
+			<button type="submit" class="button block" disabled={loading}>Sign Out</button>
 		</div>
 	</form>
 </div>

@@ -9,9 +9,7 @@
 
 	onMount(() => {
 		const { data } = supabase.auth.onAuthStateChange((event, _session) => {
-			console.log('_session', _session);
 			if (_session?.expires_at !== session?.expires_at) {
-				console.log('invalidate');
 				invalidate('supabase:auth');
 			}
 		});
